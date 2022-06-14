@@ -66,9 +66,9 @@
                 }
             };
         </script>
-		  <script src="https://assets.adobedtm.com/271fc662f1d6/362ca41cd4e4/launch-ee0bcf061fad-development.min.js"></script>
+		  <script src="https://assets.adobedtm.com/271fc662f1d6/362ca41cd4e4/launch-ee0bcf061fad-development.min.js" async></script>
 </head>
-<body onLoad="thisProductView()">
+<body  >
   <div class="bg-white">
   <!--
     Mobile menu
@@ -410,5 +410,50 @@
   </div>
 </div>
 
-<script src="addToCart.js"></script>
+<script>
+function thisProductView() {
+	 
+		localStorage.removeItem("thisProductView");
+		var thisProductView = [];
+		var currency = localStorage.getItem("brandcurrency");
+		var channel = "Desktop";
+		var price = Number(dataLayer.product.price.replace(currency,""));
+		var productName = dataLayer.product.name;
+		var productSKU = dataLayer.product.sku;
+		if(productSKU === "undefined"){
+			productSKU = productName;
+		}
+		var qty = dataLayer.product.quantity;
+		var productUrl = dataLayer.product.productURL;
+		var imageUrl = dataLayer.product.imageURL;
+		var thisProductViewP = {};
+		
+		console.log("Checking Data");
+
+		//if(dsnType === "International"){
+			thisProductViewP = {SKU: productSKU, priceTotal: price, quantity: qty, name: productName, product: imageUrl, productAddMethod: channel};
+		//}else{
+			thisProductViewP = {SKU: productSKU, priceTotal: price, quantity: qty, name: productName, product: imageUrl, productAddMethod: channel};
+			//thisProductViewP[localStorage.getItem("aepTenantId")] = { core:{ imageURL: imageUrl, productURL: productUrl}}
+		}
+//
+		thisProductView.push(thisProductViewP);
+		
+		localStorage.setItem("thisProductView", JSON.stringify(thisProductView));
+
+		var currentDataLayer = {};
+		currentDataLayer = JSON.parse(localStorage.getItem("currentDataLayer"));
+		currentDataLayer.productViewArray = JSON.parse(localStorage.getItem("thisProductView"));
+		currentDataLayer.action = "productView";
+		window.dataLayer = currentDataLayer;
+        localStorage.setItem("currentDataLayer", JSON.stringify(currentDataLayer));
+		console.log('sending Event');
+		_satellite.track('productview');
+	 
+}
+
+thisProductView();
+
+</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
