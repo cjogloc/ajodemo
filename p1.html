@@ -536,6 +536,73 @@ function showCart(cart) {
 	}
 }
 
+function addToCartP() {
+	var cartP = [];
+	var currency = localStorage.getItem("brandcurrency");
+	var channel = "Desktop";
+	var price = Number(dataLayer.product.price.replace(currency,""));
+	var productName = dataLayer.product.name;
+	var productSKU = dataLayer.product.sku;
+	if(productSKU === "undefined"){
+		productSKU = productName;
+	}
+	var qty = dataLayer.product.quantity;
+	var productUrl = dataLayer.product.productURL;
+	var imageUrl = dataLayer.product.imageURL;
+
+	var itemP = {SKU: productSKU, priceTotal: price, quantity: qty, name: productName, product: imageUrl, productAddMethod: channel};
+
+	if(dsnType === "International"){
+		itemP = {SKU: productSKU, priceTotal: price, quantity: qty, name: productName, product: imageUrl, productAddMethod: channel};
+	}else{
+		itemP = {SKU: productSKU, priceTotal: price, quantity: qty, name: productName, product: imageUrl, productAddMethod: channel};
+		itemP[localStorage.getItem("aepTenantId")] = { core:{ imageURL: imageUrl, productURL: productUrl}}
+	}
+
+	if(localStorage.getItem("cartP") === null){
+		//console.log("DEBUG: CartP is null. Adding product.");
+		cartP.push(itemP);
+		saveCartP(cartP);
+
+		var currentDataLayer = {};
+		currentDataLayer = JSON.parse(localStorage.getItem("currentDataLayer"));
+		currentDataLayer.cartArray = JSON.parse(localStorage.getItem("cartP"));
+		currentDataLayer.action = "productAddToCart";
+		window.dataLayer = currentDataLayer;
+        localStorage.setItem("currentDataLayer", JSON.stringify(currentDataLayer));
+	}else{
+		cartP = JSON.parse(localStorage.getItem("cartP"));
+		//console.log("DEBUG: CartP exists");
+		//var count = Object.keys(cart).length;
+		//console.log("Cart exists - " + count + " items in cart.");
+
+		for (i = 0; i < cartP.length; i++) {
+			console.log("DEBUG: CART Product Name" + cartP[i].name + ", productName: " + productName);
+			if(cartP[i].name === productName){
+				cartP[i].quantity += qty;
+				saveCartP(cartP);
+				var currentDataLayer = {};
+			    currentDataLayer = JSON.parse(localStorage.getItem("currentDataLayer"));
+			    currentDataLayer.cartArray = JSON.parse(localStorage.getItem("cartP"));
+				currentDataLayer.action = "productAddToCart";
+			    window.dataLayer = currentDataLayer;
+            	localStorage.setItem("currentDataLayer", JSON.stringify(currentDataLayer));
+				return;
+			}
+	    }
+
+		cartP.push(itemP);
+		saveCartP(cartP);
+
+		var currentDataLayer = {};
+		currentDataLayer = JSON.parse(localStorage.getItem("currentDataLayer"));
+		currentDataLayer.cartArray = JSON.parse(localStorage.getItem("cartP"));
+		currentDataLayer.action = "productAddToCart";
+		window.dataLayer = currentDataLayer;
+        localStorage.setItem("currentDataLayer", JSON.stringify(currentDataLayer));
+	}
+}
+
 function addToCart() {
 	var cart = [];
 	var currency = localStorage.getItem("brandcurrency");
