@@ -1,0 +1,564 @@
+<!doctype html>
+<html>
+<head>
+<title>Register</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sjcl/1.0.8/sjcl.js" integrity="sha512-J2eNenPwyfXkMVNMFz9Q54kKfYi5AA3mQWpNgtjSJzsKHtpbhUt/7bvcjGwwmzE8ZUVWMI/ndagIX1lG+SfxGA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script type="text/javascript">
+            localStorage.removeItem("currentDataLayer");
+            
+			
+			var myDataLayer='{"pageName":"Register","pageType":"","action":"","userID":"","page":{"isHome":false,"isProductDtl":false,"isCustomPage":false,"isCartPage":false,"isCheckInPage":false,"isInFlightPage":false,"isTestDrivePage":false,"isInStoreDisplayPage":false,"isLoginRegisterPage":false,"isDashboardPage":false,"isPosPage":false,"isPurchasePage":false,"loadXray":false,"primaryCategory":"","siteSection":"","customPageNumber":0,"productNumber":0},"brand":{"brandName":"Store","brandLogo":"","brandIndustry":"retail","brandLdap":"","eventIdAccountCreation":"","brandCurrency":"EUR"},"profile":{"fname":null,"lname":null,"email":null,"mnumber":null,"address":null,"city":null,"postalcode":null,"loyaltyId":null,"communicationByEmail":null,"communicationByPhone":null,"communicationByDirectMail":null,"readPrivacyAndCookiesPolicy":"in","timestamp":"2022-06-14T23:12:25.078Z","countryName":null,"hashedEmail":null,"password":null,"loggedin":null,"reloggedin":null,"gender":null,"birthDay":null,"birthMonth":null,"birthYear":null,"pictureUrl":null,"shoeSize":null,"shirtSize":null,"preferredColor":null,"loyaltyLevel":null,"loyaltyPoints":0,"churnScore":null,"churnPrediction":0,"communicationBySms":null,"profileEstimatedAge":"","profileEstimatedGender":"unknown","profileEstimatedGlasses":"","profileEstimatedEmotion":"","profileEstimatedEyeMakeup":"","profileEstimatedLipMakeup":""},"callcenter":{"topic":null,"feeling":null,"contractCancelled":null,"callFromNumber":null,"interaction":null},"industry":{"flight":{"origin":null,"destination":null,"departureDate":null,"returnDate":null,"paxAdu":null,"paxChd":null,"paxInf":null,"cabin":null,"price":0,"pnr":null,"meal":null,"seat":null},"insurance":{"age":0,"gender":null,"nationality":null,"city":null,"country":null,"primaryDriver":false,"carBrand":"","carType":"","mileage":0,"leasing":"","priceBasic":0,"priceMedium":0,"priceFull":0,"purchase":false},"fsi":{"mortgageAlready":null,"goal":null,"context":null,"propertyPrice":0,"deposit":0,"term":0,"applicants":0,"annualIncome":0,"otherLoanRepayments":0,"ccBalance":0,"dependentsU18":0,"dependentsO18":0,"salesPrediction":0},"media":{"article":{"categoryL1":null,"categoryL2":null,"categoryL3":null,"mediaId":null,"mediaName":null,"image":null},"video":{"categoryL1":null,"categoryL2":null,"categoryL3":null,"videoId":null,"name":null,"videoViewedEventType":null}},"automotive":{"testdriveCarType":null,"testdriveDate":null,"testdriveDealer":null,"testdriveTime":null}},"product":{"category":"","name":"","price":"","imageURL":"","sku":"","productURL":"","timestamp":"2022-06-14T23:12:25.081Z","currency":"","categoryL1":"","categoryL2":"","categoryL3":"","quantity":0},"productViewArray":[],"addToCartArray":[],"cartArray":[],"cartArrayPos":[],"purchase":{"paymentType":"mastercard","deliveryType":"storepickup","totalAmount":44,"orderId":"258059304"}}';
+			
+            var currentDataLayer = {};
+            currentDataLayer = JSON.parse(myDataLayer);
+
+            currentDataLayer.page.loadXray = true;
+            currentDataLayer.pageType = "Register";
+            currentDataLayer.page.primaryCategory = "Website";
+            currentDataLayer.page.siteSection = "General";
+            currentDataLayer.page.isLoginRegisterPage = true;
+            currentDataLayer.page.customPageNumber = 7;
+            currentDataLayer.pageName = "Register";
+
+            window.dataLayer = currentDataLayer;
+
+            var digitalData = {
+                page: {
+                    pageName: window.document.title,
+                    custompagenumber: 1,
+                    home: false,
+                    productdtl: false,
+                    custompage: false,
+                    registerpage: true,
+                    loadxray: true
+                },
+                category: {
+                    primaryCategory:"Website",
+                    pageType:"Register",
+                    siteSection:"General"
+                }
+            };
+        </script>
+		  <script src="https://assets.adobedtm.com/271fc662f1d6/362ca41cd4e4/launch-ee0bcf061fad-development.min.js"></script>
+		  
+		  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body  >
+  <div class="bg-white">
+  <!--
+    Mobile menu
+
+    Off-canvas menu for mobile, show/hide based on off-canvas menu state.
+  -->
+  <div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
+    <!--
+      Off-canvas menu backdrop, show/hide based on off-canvas menu state.
+
+      Entering: "transition-opacity ease-linear duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "transition-opacity ease-linear duration-300"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <div class="fixed inset-0 bg-black bg-opacity-25"></div>
+
+    <div class="fixed inset-0 flex z-40">
+      <!--
+        Off-canvas menu, show/hide based on off-canvas menu state.
+
+        Entering: "transition ease-in-out duration-300 transform"
+          From: "-translate-x-full"
+          To: "translate-x-0"
+        Leaving: "transition ease-in-out duration-300 transform"
+          From: "translate-x-0"
+          To: "-translate-x-full"
+      -->
+      <div class="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
+        <div class="px-4 pt-5 pb-2 flex">
+          <button type="button" class="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400">
+            <span class="sr-only">Close menu</span>
+            <!-- Heroicon name: outline/x -->
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Links -->
+        <div class="mt-2">
+          <div class="border-b border-gray-200">
+            <div class="-mb-px flex px-4 space-x-8" aria-orientation="horizontal" role="tablist">
+              <!-- Selected: "text-indigo-600 border-indigo-600", Not Selected: "text-gray-900 border-transparent" -->
+              <button id="tabs-1-tab-1" class="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium" aria-controls="tabs-1-panel-1" role="tab" type="button">Women</button>
+
+              <!-- Selected: "text-indigo-600 border-indigo-600", Not Selected: "text-gray-900 border-transparent" -->
+              <button id="tabs-1-tab-2" class="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium" aria-controls="tabs-1-panel-2" role="tab" type="button">Men</button>
+            </div>
+          </div>
+ 
+          <!-- 'Men' tab panel, show/hide based on tab state. -->
+             </div>
+
+        <div class="border-t border-gray-200 py-6 px-4 space-y-6">
+          <div class="flow-root">
+            <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Company</a>
+          </div>
+
+          <div class="flow-root">
+            <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Stores</a>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-200 py-6 px-4 space-y-6">
+          <div class="flow-root">
+            <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Sign in</a>
+          </div>
+          <div class="flow-root">
+            <a href="register" class="-m-2 p-2 block font-medium text-gray-900">Create account</a>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-200 py-6 px-4">
+          <a href="#" class="-m-2 p-2 flex items-center">
+            <img src="https://tailwindui.com/img/flags/flag-australia.svg" alt="" class="w-5 h-auto block flex-shrink-0">
+            <span class="ml-3 block text-base font-medium text-gray-900"> AUD </span>
+            <span class="sr-only">, change currency</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="relative bg-white">
+    <p class="bg-indigo-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">Get free delivery on orders over $100</p>
+
+    <nav aria-label="Top" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="border-b border-gray-200">
+        <div class="h-16 flex items-center">
+          <!-- Mobile menu toggle, controls the 'mobileMenuOpen' state. -->
+          <button type="button" class="bg-white p-2 rounded-md text-gray-400 lg:hidden">
+            <span class="sr-only">Open menu</span>
+            <!-- Heroicon name: outline/menu -->
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+
+          <!-- Logo -->
+          <div class="ml-4 flex lg:ml-0">
+            <a href="index.html">
+              <span class="sr-only">Workflow</span>
+              <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600" alt="">
+            </a>
+          </div>
+
+          <!-- Flyout menus -->
+          <div class="hidden lg:ml-8 lg:block lg:self-stretch">
+            <div class="h-full flex space-x-8">
+              <div class="flex">
+                <div class="relative flex">
+                  <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" -->
+                  <button type="button" class="border-transparent text-gray-700 hover:text-gray-800 relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px" aria-expanded="false">Women</button>
+                </div>
+
+                <!--
+                  'Women' flyout menu, show/hide based on flyout menu state.
+
+                  Entering: "transition ease-out duration-200"
+                    From: "opacity-0"
+                    To: "opacity-100"
+                  Leaving: "transition ease-in duration-150"
+                    From: "opacity-100"
+                    To: "opacity-0"
+                -->
+              </div>
+
+              <div class="flex">
+                <div class="relative flex">
+                  <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" -->
+                  <button type="button" class="border-transparent text-gray-700 hover:text-gray-800 relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px" aria-expanded="false">Men</button>
+                </div>
+
+                <!--
+                  'Men' flyout menu, show/hide based on flyout menu state.
+
+                  Entering: "transition ease-out duration-200"
+                    From: "opacity-0"
+                    To: "opacity-100"
+                  Leaving: "transition ease-in duration-150"
+                    From: "opacity-100"
+                    To: "opacity-0"
+                -->
+               </div>
+
+              <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Company</a>
+
+              <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Stores</a>
+            </div>
+          </div>
+
+          <div class="ml-auto flex items-center">
+            <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+              <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Sign in</a>
+              <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
+              <a href="register.html" class="text-sm font-medium text-gray-700 hover:text-gray-800">Create account</a>
+            </div>
+
+            <div class="hidden lg:ml-8 lg:flex">
+              <a href="#" class="text-gray-700 hover:text-gray-800 flex items-center">
+                <img src="https://tailwindui.com/img/flags/flag-australia.svg" alt="" class="w-5 h-auto block flex-shrink-0">
+                <span class="ml-3 block text-sm font-medium"> AUD </span>
+                <span class="sr-only">, change currency</span>
+              </a>
+            </div>
+
+            <!-- Search -->
+            <div class="flex lg:ml-6">
+              <a href="#" class="p-2 text-gray-400 hover:text-gray-500">
+                <span class="sr-only">Search</span>
+                <!-- Heroicon name: outline/search -->
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </a>
+            </div>
+
+            <!-- Cart -->
+            <div class="ml-4 flow-root lg:ml-6">
+              <a href="#" class="group -m-2 p-2 flex items-center">
+                <!-- Heroicon name: outline/shopping-bag -->
+                <svg class="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+                <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800" id="carticonqty">0</span>
+                <span class="sr-only">items in cart, view bag</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+</div>
+
+
+
+ 
+
+<div class="mt-10  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="md:col-span-1">
+      <div class="px-4 sm:px-0">
+        <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
+        <p class="mt-1 text-sm text-gray-600">Use a permanent address where you can receive mail.</p>
+      </div>
+    </div>
+    <div class="mt-5 md:mt-0 md:col-span-2">
+      <form action="#" method="POST">
+        <div class="shadow overflow-hidden sm:rounded-md">
+          <div class="px-4 py-5 bg-white sm:p-6">
+            <div class="grid grid-cols-6 gap-6">
+              <div class="col-span-6 sm:col-span-3">
+                <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
+                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="border-2 p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
+                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="border-2 p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
+                <input type="text" name="email-address" id="email-address" autocomplete="email" class="border-2 p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+			  
+			   <div class="col-span-6 sm:col-span-3">
+                <label for="mobile" class="block text-sm font-medium text-gray-700">Mobile Number</label>
+                <input type="text" name="mobile" id="mobile"   class="border-2 p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-6">
+                <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
+                <select id="country" name="country" autocomplete="country-name" class="border-2 p-2  mt-1 block w-full py-2 px-3  border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option value="Australia">Australia</option>
+                  
+                </select>
+              </div>
+
+              <div class="col-span-6">
+                <label for="street-address" class="block text-sm font-medium text-gray-700">Street address</label>
+                <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="border-2 p-2  mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+                <input type="text" name="city" id="city" autocomplete="address-level2" class="border-2 p-2  mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                <label for="region" class="block text-sm font-medium text-gray-700">State / Province</label>
+                <input type="text" name="region" id="region" autocomplete="address-level1" class="border-2 p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                <label for="postal-code" class="block text-sm font-medium text-gray-700">ZIP / Postal code</label>
+                <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="border-2 p-2  mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+			  
+			  <div class="col-span-6 sm:col-span-6">
+                <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
+                <select id="gender" name="gender"   class="border-2 p-2  mt-1 block w-full py-2 px-3  border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option>Select</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+				   <option value="other">Other</option>
+                </select>
+              </div>
+			  
+			  
+			   <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                <label for="bithday" class="block text-sm font-medium text-gray-700">Birthday</label>
+                <input type="text" name="bithday" id="bithday"   class="border-2 p-2  mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                <label for="birthmonth" class="block text-sm font-medium text-gray-700">Birth Month</label>
+                <input type="text" name="birthmonth" id="birthmonth"   class="border-2 p-2 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+
+              <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                <label for="birthyear" class="block text-sm font-medium text-gray-700">Birth Year</label>
+                <input type="text" name="birthyear" id="birthyear"  class="border-2 p-2  mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+              </div>
+			  
+            </div>
+          </div>
+          
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="hidden sm:block" aria-hidden="true">
+  <div class="py-5">
+    <div class="border-t border-gray-200"></div>
+  </div>
+</div>
+
+<div class="mt-10 sm:mt-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="md:col-span-1">
+      <div class="px-4 sm:px-0">
+        <h3 class="text-lg font-medium leading-6 text-gray-900">Notifications</h3>
+        <p class="mt-1 text-sm text-gray-600">Decide which communications you'd like to receive and how.</p>
+      </div>
+    </div>
+    <div class="mt-5 md:mt-0 md:col-span-2">
+      <form action="#" method="POST">
+        <div class="shadow overflow-hidden sm:rounded-md">
+          <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+            <fieldset>
+              <legend class="sr-only">Channels</legend>
+              <div class="text-base font-medium text-gray-900" aria-hidden="true">Channels</div>
+              <div class="mt-4 space-y-4">
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="email" name="email" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="email" class="font-medium text-gray-700">Email</label>
+                   
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="sms" name="sms" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="sms" class="font-medium text-gray-700">SMS</label>
+                     
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="dm" name="dm" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="dm" class="font-medium text-gray-700">Direct Mail</label>
+                    
+                  </div>
+                </div>
+				<div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="push" name="push" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="push" class="font-medium text-gray-700">Mobile Push Notifications</label>
+                    
+                  </div>
+                </div>
+				
+				
+              </div>
+			  
+			   <div class="flex items-start mt-10">
+                  <div class="flex items-center h-5">
+                    <input id="test" name="test" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="test" class="font-medium text-gray-700">Register as Test Profile</label>
+                    
+                  </div>
+                </div>
+			  
+			 
+			  
+			  
+            </fieldset>
+          </div>
+          <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <button type="button" onclick="createAccount();" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Create Account</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+function createAccount(){
+    localStorage.setItem('firstname', document.getElementById("first-name").value);
+    localStorage.setItem('lastname', document.getElementById("last-name").value);
+    localStorage.setItem('email', document.getElementById("email-address").value);
+  localStorage.setItem('countryname', document.getElementById("country").value);
+    var thisEmail = document.getElementById("email-address").value;
+	localStorage.setItem('mobilenr', document.getElementById("mobile").value);
+    var bitArray = sjcl.hash.sha256.hash(thisEmail);  
+    var thisEmail_sha256 = sjcl.codec.hex.fromBits(bitArray); 
+    console.log(">>>>> SHA256 Encrypted Email: " + thisEmail_sha256);
+    localStorage.setItem('emailSha256', thisEmail_sha256);
+	
+	localStorage.setItem('mobilenr', document.getElementById("mobile").value);
+	localStorage.setItem('street', document.getElementById("street-address").value);
+	
+	localStorage.setItem('city', document.getElementById("city").value);
+    localStorage.setItem('postalcode', document.getElementById("postal-code").value);
+	
+	   localStorage.setItem('birthday', document.getElementById("birthday").value);
+    localStorage.setItem('birthmonth', document.getElementById("birthmonth").value);
+    localStorage.setItem('birthyear', document.getElementById("birthyear").value);
+	
+	localStorage.setItem('gender', document.getElementById("gender").value);
+	
+
+   // localStorage.setItem('password', document.getElementById("login_password").value);
+    localStorage.setItem('loggedin', "Yes");
+    
+ 
+    
+    
+  
+   // localStorage.setItem('pictureurl', document.getElementById("pictureurl").value);
+    
+    //localStorage.setItem('shoesize', document.getElementById("shoesize").value);
+  //  localStorage.setItem('shirtsize', document.getElementById("shirtsize").value);
+   // localStorage.setItem('preferredcolor', document.getElementById("preferredcolor").value);
+    localStorage.setItem('loyaltylevel', 'Bronze');
+    localStorage.setItem('loyaltypoints', '0');
+    localStorage.setItem('churnscore', '0.00');
+	
+	  if(document.getElementById('dm').checked){
+        localStorage.setItem('optin_dm', 'in');
+    }else{
+        localStorage.setItem('optin_dm', 'out');
+    }
+    if(document.getElementById('push').checked){
+        localStorage.setItem('optin_phone', 'in');
+    }else{
+        localStorage.setItem('optin_phone', 'out');
+    }
+    if(document.getElementById('sms').checked){
+        localStorage.setItem('optin_sms', 'in');
+    }else{
+        localStorage.setItem('optin_sms', 'out');
+    }
+    if(document.getElementById('email').checked){
+        localStorage.setItem('optin_email', 'in');
+    }else{
+        localStorage.setItem('optin_email', 'out');
+    }
+    if(document.getElementById('test').checked){
+        localStorage.setItem('testProfile', true);
+    }else{
+        localStorage.setItem('testProfile', false);
+    }
+	
+	 localStorage.removeItem("currentDataLayer");
+            
+    var currentDataLayer = {};
+    currentDataLayer = JSON.parse(myDataLayer);
+
+    currentDataLayer.loadXray = true;
+    currentDataLayer.profile.fname = localStorage.getItem('firstname');
+    currentDataLayer.profile.lname = localStorage.getItem('lastname');
+    currentDataLayer.profile.email = localStorage.getItem('email');
+    currentDataLayer.profile.mnumber = localStorage.getItem('mobilenr');
+    currentDataLayer.profile.address = localStorage.getItem('street');
+    currentDataLayer.profile.city = localStorage.getItem('city');
+    currentDataLayer.profile.postalcode = localStorage.getItem('postalcode');
+    currentDataLayer.profile.loyaltyId = localStorage.getItem('emailSha256');
+    currentDataLayer.profile.communicationByEmail = localStorage.getItem('optin_email');
+    currentDataLayer.profile.communicationByPhone = localStorage.getItem('optin_phone');
+    currentDataLayer.profile.communicationByDirectMail = localStorage.getItem('optin_dm');
+    currentDataLayer.profile.readPrivacyAndCookiesPolicy = 'in';
+    currentDataLayer.profile.timestamp = new Date().toISOString();
+    currentDataLayer.profile.testProfile = localStorage.getItem('testProfile');
+
+    currentDataLayer.profile.countryName = localStorage.getItem('countryname');
+    currentDataLayer.profile.hashedEmail = localStorage.getItem('emailSha256');
+    currentDataLayer.profile.password = localStorage.getItem('password');
+    currentDataLayer.profile.loggedin = localStorage.getItem('loggedin');
+    currentDataLayer.profile.gender = localStorage.getItem('gender');
+    currentDataLayer.profile.birthDay = localStorage.getItem('birthday');
+    currentDataLayer.profile.birthMonth = localStorage.getItem('birthmonth');
+    currentDataLayer.profile.birthYear = localStorage.getItem('birthyear');
+     
+    currentDataLayer.profile.loyaltyLevel = localStorage.getItem('loyaltylevel');
+    currentDataLayer.profile.loyaltyPoints = Number(localStorage.getItem('loyaltypoints'));
+    currentDataLayer.profile.churnScore = localStorage.getItem('churnscore');
+    currentDataLayer.profile.churnPrediction = Number(localStorage.getItem('churnscore'));
+    
+    currentDataLayer.profile.communicationBySms = localStorage.getItem('optin_sms');
+   
+
+    window.dataLayer = currentDataLayer;
+
+    _satellite.track('createaccount');
+	
+	Toastify({
+  text: "Account Created successfully",
+  duration: 3000, 
+  
+  close: true,
+  gravity: "top", // `top` or `bottom`
+  position: "right", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right, #00b09b, #96c93d)",
+  },
+   
+}).showToast();
+	
+	setTimeout(function(){document.location.href = "./account.html?email=" + document.getElementById("email-address").value;}, 3000);
+
+
+}
+
+</script>
