@@ -435,8 +435,8 @@ function thisProductView() {
 		//}else{
 			thisProductViewP = {SKU: productSKU, priceTotal: price, quantity: qty, name: productName, product: imageUrl, productAddMethod: channel};
 			//thisProductViewP[localStorage.getItem("aepTenantId")] = { core:{ imageURL: imageUrl, productURL: productUrl}}
-		}
-//
+		//}
+
 		thisProductView.push(thisProductViewP);
 		
 		localStorage.setItem("thisProductView", JSON.stringify(thisProductView));
