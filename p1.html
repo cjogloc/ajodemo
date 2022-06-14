@@ -69,6 +69,8 @@
             };
         </script>
 		  <script src="https://assets.adobedtm.com/271fc662f1d6/362ca41cd4e4/launch-ee0bcf061fad-development.min.js"></script>
+		  
+		  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 <body  >
   <div class="bg-white">
@@ -631,9 +633,24 @@ function addToCart() {
 	saveCart(cart);
 	showCart(cart);
 	addToCartP();
+	
+	Toastify({
+  text: "Added to cart",
+  duration: 3000, 
+  
+  close: true,
+  gravity: "top", // `top` or `bottom`
+  position: "right", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right, #00b09b, #96c93d)",
+  },
+   
+}).showToast();
 }
 </script>
 
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
