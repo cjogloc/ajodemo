@@ -370,7 +370,7 @@
           
           <!-- Sizes -->
           
-          <button id="addtocartbutton" onclick="thisAddToCart();addToCart();"   class="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add to bag</button>
+          <button id="addtocartbutton" onclick="thisAddToCart();addToCart();" type="button"   class="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add to bag</button>
         </form>
       </div>
 
@@ -552,12 +552,9 @@ function addToCartP() {
 
 	var itemP = {SKU: productSKU, priceTotal: price, quantity: qty, name: productName, product: imageUrl, productAddMethod: channel};
 
-	if(dsnType === "International"){
+	 
 		itemP = {SKU: productSKU, priceTotal: price, quantity: qty, name: productName, product: imageUrl, productAddMethod: channel};
-	}else{
-		itemP = {SKU: productSKU, priceTotal: price, quantity: qty, name: productName, product: imageUrl, productAddMethod: channel};
-		itemP[localStorage.getItem("aepTenantId")] = { core:{ imageURL: imageUrl, productURL: productUrl}}
-	}
+	 
 
 	if(localStorage.getItem("cartP") === null){
 		//console.log("DEBUG: CartP is null. Adding product.");
