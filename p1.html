@@ -10,7 +10,7 @@
    <script>
   localStorage.setItem('brandcurrency','AUD');
             localStorage.removeItem("thisProductView");
-            localStorage.removeItem("thisAddToCart");
+         //   localStorage.removeItem("thisAddToCart");
         </script>
 		  <script type="text/javascript">
             var currentDataLayer = {};
@@ -26,6 +26,8 @@
             currentDataLayer.page.productNumber = 1;
             currentDataLayer.page.isProductDtl = true;
             currentDataLayer.pageName = "Tshirt 1";
+			
+		
 
             currentDataLayer.action = "productView";
             currentDataLayer.product.category = "Men";
@@ -146,8 +148,8 @@
 
         <div class="border-t border-gray-200 py-6 px-4">
           <a href="#" class="-m-2 p-2 flex items-center">
-            <img src="https://tailwindui.com/img/flags/flag-canada.svg" alt="" class="w-5 h-auto block flex-shrink-0">
-            <span class="ml-3 block text-base font-medium text-gray-900"> CAD </span>
+            <img src="https://tailwindui.com/img/flags/flag-australia.svg" alt="" class="w-5 h-auto block flex-shrink-0">
+            <span class="ml-3 block text-base font-medium text-gray-900"> AUD </span>
             <span class="sr-only">, change currency</span>
           </a>
         </div>
@@ -428,14 +430,11 @@ function thisProductView() {
 		var imageUrl = dataLayer.product.imageURL;
 		var thisProductViewP = {};
 		
-		console.log("Checking Data");
+		 
 
-		//if(dsnType === "International"){
+		 
 			thisProductViewP = {SKU: productSKU, priceTotal: price, quantity: qty, name: productName, product: imageUrl, productAddMethod: channel};
-		//}else{
-			thisProductViewP = {SKU: productSKU, priceTotal: price, quantity: qty, name: productName, product: imageUrl, productAddMethod: channel};
-			//thisProductViewP[localStorage.getItem("aepTenantId")] = { core:{ imageURL: imageUrl, productURL: productUrl}}
-		//}
+	 
 
 		thisProductView.push(thisProductViewP);
 		
@@ -454,6 +453,123 @@ function thisProductView() {
 
 thisProductView();
 
+
+function thisAddToCart() {
+	var thisAddToCart = [];
+	var currency = localStorage.getItem("brandcurrency");
+	var channel = "Desktop";
+	var price = Number(dataLayer.product.price.replace(currency,""));
+	var productName = dataLayer.product.name;
+	var productSKU = dataLayer.product.sku;
+	if(productSKU === "undefined"){
+		productSKU = productName;
+	}
+	
+	var qty = 1;  // get quantity
+	var productUrl = dataLayer.product.productURL;
+	var imageUrl = dataLayer.product.imageURL;
+
+	var thisAddToCartP = {};
+
+	 
+thisAddToCartP = {SKU: productSKU, priceTotal: price, quantity: qty, name: productName, product: imageUrl, productAddMethod: channel};
+	 
+
+	thisAddToCart.push(thisAddToCartP);
+	
+	if(localStorage.getItem("thisAddToCart") !== null){
+		localStorage.removeItem("thisAddToCart")
+		localStorage.setItem("thisAddToCart", JSON.stringify(thisAddToCart));
+	}else{
+		localStorage.setItem("thisAddToCart", JSON.stringify(thisAddToCart));
+	}
+
+	var currentDataLayer = {};
+	currentDataLayer = JSON.parse(localStorage.getItem("currentDataLayer"));
+	currentDataLayer.addToCartArray = JSON.parse(localStorage.getItem("thisAddToCart"));
+	currentDataLayer.action = "productAddToCart";
+	window.dataLayer = currentDataLayer;
+    localStorage.setItem("currentDataLayer", JSON.stringify(currentDataLayer));
+	
+	console.log("thisAddToCart executed --> successfully");
+}
+
+function saveCart(cart) {
+	//*************************************************
+	// Activate Direct Call Rule in Launch
+	//*************************************************
+	_satellite.track('addtocart');
+
+	console.log(">>>>> Product Added To Cart");
+	if (window.localStorage){
+		localStorage.setItem("cart", JSON.stringify(cart));
+	}
+
+	if(localStorage.getItem("cart") !== null){
+        cart = JSON.parse(localStorage.getItem("cart"));
+        var count = 0;
+
+        for (var i in cart) {
+            count += cart[i].productQty; 
+        }
+
+        console.log("Cart exists - " + count + " items in cart.");
+        if(count > 0){
+            $("#carticonqty").text(count);
+            $("#carticonqty").attr("style", "display:block;");
+        }
+    }
+	
+	console.log("saveCart executed --> successfully");
+}
+
+function saveCartP(cart) {
+	localStorage.setItem("cartP", JSON.stringify(cart));
+}
+
+function showCart(cart) {
+	var count = Object.keys(cart).length;
+	//console.log("Show Cart - " + count + " items in cart.");
+	for (var i in cart) {
+		var item = cart[i];
+		console.log("Product in Cart " + i + " - Name: " + item.productName + " - Price: " +  item.productPrice + " - Qty: " + item.productQty + " - URL: " + item.productUrl + " - Image: " + item.productImageUrl);
+	}
+}
+
+function addToCart() {
+	var cart = [];
+	var currency = localStorage.getItem("brandcurrency");
+	var price = Number(dataLayer.product.price.replace(currency,""));  // get selected product's price
+	var name = dataLayer.product.name;  // get product name
+	var qty = dataLayer.product.quantity;  // get quantity
+	var productUrl = dataLayer.product.productURL;
+	var imageUrl = dataLayer.product.imageURL;
+
+	var item = {productName: name, productPrice: price, productQty: qty, productUrl: productUrl, productImageUrl: imageUrl};
+
+	if(localStorage.getItem("cart") === null){
+		//console.log("Cart doesn't exist: ");
+		cart.push(item);
+	}else{
+		cart = JSON.parse(localStorage.getItem("cart"));
+		for (var i in cart) {
+			//console.log(cart[i].productName);
+			if(cart[i].productName == name){
+				cart[i].productQty += qty; 
+				saveCart(cart);
+				showCart(cart);
+				addToCartP();
+				return
+	        }
+	    }
+		cart.push(item);
+	}    	
+	saveCart(cart);
+	showCart(cart);
+	addToCartP();
+}
 </script>
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
