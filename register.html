@@ -426,6 +426,9 @@
           <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
             <button type="button" onclick="createAccount();" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Create Account</button>
           </div>
+		  
+		  <div class="">
+		  <div>
         </div>
       </form>
     </div>
@@ -502,6 +505,7 @@ function createAccount(){
 	
 	 localStorage.removeItem("currentDataLayer");
             
+			var myDataLayer='{"pageName":"Register","pageType":"","action":"","userID":"","page":{"isHome":false,"isProductDtl":false,"isCustomPage":false,"isCartPage":false,"isCheckInPage":false,"isInFlightPage":false,"isTestDrivePage":false,"isInStoreDisplayPage":false,"isLoginRegisterPage":false,"isDashboardPage":false,"isPosPage":false,"isPurchasePage":false,"loadXray":false,"primaryCategory":"","siteSection":"","customPageNumber":0,"productNumber":0},"brand":{"brandName":"Store","brandLogo":"","brandIndustry":"retail","brandLdap":"","eventIdAccountCreation":"","brandCurrency":"EUR"},"profile":{"fname":null,"lname":null,"email":null,"mnumber":null,"address":null,"city":null,"postalcode":null,"loyaltyId":null,"communicationByEmail":null,"communicationByPhone":null,"communicationByDirectMail":null,"readPrivacyAndCookiesPolicy":"in","timestamp":"2022-06-14T23:12:25.078Z","countryName":null,"hashedEmail":null,"password":null,"loggedin":null,"reloggedin":null,"gender":null,"birthDay":null,"birthMonth":null,"birthYear":null,"pictureUrl":null,"shoeSize":null,"shirtSize":null,"preferredColor":null,"loyaltyLevel":null,"loyaltyPoints":0,"churnScore":null,"churnPrediction":0,"communicationBySms":null,"profileEstimatedAge":"","profileEstimatedGender":"unknown","profileEstimatedGlasses":"","profileEstimatedEmotion":"","profileEstimatedEyeMakeup":"","profileEstimatedLipMakeup":""},"callcenter":{"topic":null,"feeling":null,"contractCancelled":null,"callFromNumber":null,"interaction":null},"industry":{"flight":{"origin":null,"destination":null,"departureDate":null,"returnDate":null,"paxAdu":null,"paxChd":null,"paxInf":null,"cabin":null,"price":0,"pnr":null,"meal":null,"seat":null},"insurance":{"age":0,"gender":null,"nationality":null,"city":null,"country":null,"primaryDriver":false,"carBrand":"","carType":"","mileage":0,"leasing":"","priceBasic":0,"priceMedium":0,"priceFull":0,"purchase":false},"fsi":{"mortgageAlready":null,"goal":null,"context":null,"propertyPrice":0,"deposit":0,"term":0,"applicants":0,"annualIncome":0,"otherLoanRepayments":0,"ccBalance":0,"dependentsU18":0,"dependentsO18":0,"salesPrediction":0},"media":{"article":{"categoryL1":null,"categoryL2":null,"categoryL3":null,"mediaId":null,"mediaName":null,"image":null},"video":{"categoryL1":null,"categoryL2":null,"categoryL3":null,"videoId":null,"name":null,"videoViewedEventType":null}},"automotive":{"testdriveCarType":null,"testdriveDate":null,"testdriveDealer":null,"testdriveTime":null}},"product":{"category":"","name":"","price":"","imageURL":"","sku":"","productURL":"","timestamp":"2022-06-14T23:12:25.081Z","currency":"","categoryL1":"","categoryL2":"","categoryL3":"","quantity":0},"productViewArray":[],"addToCartArray":[],"cartArray":[],"cartArrayPos":[],"purchase":{"paymentType":"mastercard","deliveryType":"storepickup","totalAmount":44,"orderId":"258059304"}}';
     var currentDataLayer = {};
     currentDataLayer = JSON.parse(myDataLayer);
 
@@ -542,19 +546,7 @@ function createAccount(){
 
     _satellite.track('createaccount');
 	
-	Toastify({
-  text: "Account Created successfully",
-  duration: 3000, 
-  
-  close: true,
-  gravity: "top", // `top` or `bottom`
-  position: "right", // `left`, `center` or `right`
-  stopOnFocus: true, // Prevents dismissing of toast on hover
-  style: {
-    background: "linear-gradient(to right, #00b09b, #96c93d)",
-  },
-   
-}).showToast();
+	 
 	
 	setTimeout(function(){document.location.href = "./account.html?email=" + document.getElementById("email-address").value;}, 3000);
 
