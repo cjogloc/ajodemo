@@ -1,0 +1,479 @@
+<!doctype html>
+<html>
+<head>
+<title>Cart</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sjcl/1.0.8/sjcl.js" integrity="sha512-J2eNenPwyfXkMVNMFz9Q54kKfYi5AA3mQWpNgtjSJzsKHtpbhUt/7bvcjGwwmzE8ZUVWMI/ndagIX1lG+SfxGA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script type="text/javascript">
+            localStorage.removeItem("currentDataLayer");
+            
+			
+			var myDataLayer='{"pageName":"Cart","pageType":"","action":"","userID":"","page":{"isHome":false,"isProductDtl":false,"isCustomPage":false,"isCartPage":false,"isCheckInPage":false,"isInFlightPage":false,"isTestDrivePage":false,"isInStoreDisplayPage":false,"isLoginRegisterPage":false,"isDashboardPage":false,"isPosPage":false,"isPurchasePage":false,"loadXray":false,"primaryCategory":"","siteSection":"","customPageNumber":0,"productNumber":0},"brand":{"brandName":"Store","brandLogo":"","brandIndustry":"retail","brandLdap":"","eventIdAccountCreation":"","brandCurrency":"EUR"},"profile":{"fname":null,"lname":null,"email":null,"mnumber":null,"address":null,"city":null,"postalcode":null,"loyaltyId":null,"communicationByEmail":null,"communicationByPhone":null,"communicationByDirectMail":null,"readPrivacyAndCookiesPolicy":"in","timestamp":"2022-06-16T04:39:48.628Z","countryName":null,"hashedEmail":null,"password":null,"loggedin":null,"reloggedin":null,"gender":null,"birthDay":null,"birthMonth":null,"birthYear":null,"pictureUrl":null,"shoeSize":null,"shirtSize":null,"preferredColor":null,"loyaltyLevel":null,"loyaltyPoints":0,"churnScore":null,"churnPrediction":0,"communicationBySms":null,"profileEstimatedAge":null,"profileEstimatedGender":null,"profileEstimatedGlasses":null,"profileEstimatedEmotion":null,"profileEstimatedEyeMakeup":null,"profileEstimatedLipMakeup":null},"callcenter":{"topic":null,"feeling":null,"contractCancelled":null,"callFromNumber":null,"interaction":null},"industry":{"flight":{"origin":null,"destination":null,"departureDate":null,"returnDate":null,"paxAdu":null,"paxChd":null,"paxInf":null,"cabin":null,"price":0,"pnr":null,"meal":null,"seat":null},"insurance":{"age":0,"gender":null,"nationality":null,"city":null,"country":null,"primaryDriver":false,"carBrand":"","carType":"","mileage":0,"leasing":"","priceBasic":0,"priceMedium":0,"priceFull":0,"purchase":false},"fsi":{"mortgageAlready":null,"goal":null,"context":null,"propertyPrice":0,"deposit":0,"term":0,"applicants":0,"annualIncome":0,"otherLoanRepayments":0,"ccBalance":0,"dependentsU18":0,"dependentsO18":0,"salesPrediction":0},"media":{"article":{"categoryL1":null,"categoryL2":null,"categoryL3":null,"mediaId":null,"mediaName":null,"image":null},"video":{"categoryL1":null,"categoryL2":null,"categoryL3":null,"videoId":null,"name":null,"videoViewedEventType":null}},"automotive":{"testdriveCarType":null,"testdriveDate":null,"testdriveDealer":null,"testdriveTime":null}},"product":{"category":"","name":"","price":"","imageURL":"","sku":"","productURL":"","timestamp":"2022-06-16T04:39:48.630Z","currency":"","categoryL1":"","categoryL2":"","categoryL3":"","quantity":0},"productViewArray":[],"addToCartArray":[],"cartArray":[],"cartArrayPos":[],"purchase":{"paymentType":null,"deliveryType":null,"totalAmount":0,"orderId":null}}';
+			
+            var currentDataLayer = {};
+            currentDataLayer = JSON.parse(myDataLayer);
+
+             currentDataLayer.page.loadXray = true;
+            currentDataLayer.pageType = "Cart";
+            currentDataLayer.page.primaryCategory = "Website";
+            currentDataLayer.page.siteSection = "Cart";
+            currentDataLayer.page.isCartPage = true;
+            currentDataLayer.pageName = window.document.title;
+            currentDataLayer.cartArray = JSON.parse(localStorage.getItem("cartP"));
+            currentDataLayer.action = "productPurchase";
+
+
+            window.dataLayer = currentDataLayer;
+
+            var digitalData = {
+                page: {
+                    pageName: window.document.title,
+                    custompagenumber: 1,
+                    home: false,
+                    productdtl: false,
+                    custompage: false,
+                    registerpage: true,
+                    loadxray: true
+                },
+                category: {
+                    primaryCategory:"Website",
+                    pageType:"Register",
+                    siteSection:"General"
+                }
+            };
+        </script>
+		  <script src="https://assets.adobedtm.com/271fc662f1d6/362ca41cd4e4/launch-ee0bcf061fad-development.min.js"></script>
+		  
+		  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body  >
+  <div class="bg-white">
+  <!--
+    Mobile menu
+
+    Off-canvas menu for mobile, show/hide based on off-canvas menu state.
+  -->
+  <div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
+    <!--
+      Off-canvas menu backdrop, show/hide based on off-canvas menu state.
+
+      Entering: "transition-opacity ease-linear duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "transition-opacity ease-linear duration-300"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <div class="fixed inset-0 bg-black bg-opacity-25"></div>
+
+    <div class="fixed inset-0 flex z-40">
+      <!--
+        Off-canvas menu, show/hide based on off-canvas menu state.
+
+        Entering: "transition ease-in-out duration-300 transform"
+          From: "-translate-x-full"
+          To: "translate-x-0"
+        Leaving: "transition ease-in-out duration-300 transform"
+          From: "translate-x-0"
+          To: "-translate-x-full"
+      -->
+      <div class="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
+        <div class="px-4 pt-5 pb-2 flex">
+          <button type="button" class="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400">
+            <span class="sr-only">Close menu</span>
+            <!-- Heroicon name: outline/x -->
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Links -->
+        <div class="mt-2">
+          <div class="border-b border-gray-200">
+            <div class="-mb-px flex px-4 space-x-8" aria-orientation="horizontal" role="tablist">
+              <!-- Selected: "text-indigo-600 border-indigo-600", Not Selected: "text-gray-900 border-transparent" -->
+              <button id="tabs-1-tab-1" class="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium" aria-controls="tabs-1-panel-1" role="tab" type="button">Women</button>
+
+              <!-- Selected: "text-indigo-600 border-indigo-600", Not Selected: "text-gray-900 border-transparent" -->
+              <button id="tabs-1-tab-2" class="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium" aria-controls="tabs-1-panel-2" role="tab" type="button">Men</button>
+            </div>
+          </div>
+ 
+          <!-- 'Men' tab panel, show/hide based on tab state. -->
+             </div>
+
+        <div class="border-t border-gray-200 py-6 px-4 space-y-6">
+          <div class="flow-root">
+            <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Company</a>
+          </div>
+
+          <div class="flow-root">
+            <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Stores</a>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-200 py-6 px-4 space-y-6">
+          <div class="flow-root">
+            <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Sign in</a>
+          </div>
+          <div class="flow-root">
+            <a href="register" class="-m-2 p-2 block font-medium text-gray-900">Create account</a>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-200 py-6 px-4">
+          <a href="#" class="-m-2 p-2 flex items-center">
+            <img src="https://tailwindui.com/img/flags/flag-australia.svg" alt="" class="w-5 h-auto block flex-shrink-0">
+            <span class="ml-3 block text-base font-medium text-gray-900"> AUD </span>
+            <span class="sr-only">, change currency</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="relative bg-white">
+    <p class="bg-indigo-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">Get free delivery on orders over $100</p>
+
+    <nav aria-label="Top" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="border-b border-gray-200">
+        <div class="h-16 flex items-center">
+          <!-- Mobile menu toggle, controls the 'mobileMenuOpen' state. -->
+          <button type="button" class="bg-white p-2 rounded-md text-gray-400 lg:hidden">
+            <span class="sr-only">Open menu</span>
+            <!-- Heroicon name: outline/menu -->
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+
+          <!-- Logo -->
+          <div class="ml-4 flex lg:ml-0">
+            <a href="index.html">
+              <span class="sr-only">Workflow</span>
+              <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600" alt="">
+            </a>
+          </div>
+
+          <!-- Flyout menus -->
+          <div class="hidden lg:ml-8 lg:block lg:self-stretch">
+            <div class="h-full flex space-x-8">
+              <div class="flex">
+                <div class="relative flex">
+                  <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" -->
+                  <button type="button" class="border-transparent text-gray-700 hover:text-gray-800 relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px" aria-expanded="false">Women</button>
+                </div>
+
+                <!--
+                  'Women' flyout menu, show/hide based on flyout menu state.
+
+                  Entering: "transition ease-out duration-200"
+                    From: "opacity-0"
+                    To: "opacity-100"
+                  Leaving: "transition ease-in duration-150"
+                    From: "opacity-100"
+                    To: "opacity-0"
+                -->
+              </div>
+
+              <div class="flex">
+                <div class="relative flex">
+                  <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" -->
+                  <button type="button" class="border-transparent text-gray-700 hover:text-gray-800 relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px" aria-expanded="false">Men</button>
+                </div>
+
+                <!--
+                  'Men' flyout menu, show/hide based on flyout menu state.
+
+                  Entering: "transition ease-out duration-200"
+                    From: "opacity-0"
+                    To: "opacity-100"
+                  Leaving: "transition ease-in duration-150"
+                    From: "opacity-100"
+                    To: "opacity-0"
+                -->
+               </div>
+
+              <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Company</a>
+
+              <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Stores</a>
+            </div>
+          </div>
+
+          <div class="ml-auto flex items-center">
+            <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+              <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Sign in</a>
+              <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
+              <a href="register.html" class="text-sm font-medium text-gray-700 hover:text-gray-800">Create account</a>
+            </div>
+
+            <div class="hidden lg:ml-8 lg:flex">
+              <a href="#" class="text-gray-700 hover:text-gray-800 flex items-center">
+                <img src="https://tailwindui.com/img/flags/flag-australia.svg" alt="" class="w-5 h-auto block flex-shrink-0">
+                <span class="ml-3 block text-sm font-medium"> AUD </span>
+                <span class="sr-only">, change currency</span>
+              </a>
+            </div>
+
+            <!-- Search -->
+            <div class="flex lg:ml-6">
+              <a href="#" class="p-2 text-gray-400 hover:text-gray-500">
+                <span class="sr-only">Search</span>
+                <!-- Heroicon name: outline/search -->
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </a>
+            </div>
+
+            <!-- Cart -->
+            <div class="ml-4 flow-root lg:ml-6">
+              <a href="cart.html" class="group -m-2 p-2 flex items-center">
+                <!-- Heroicon name: outline/shopping-bag -->
+                <svg class="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+                <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800" id="carticonqty">0</span>
+                <span class="sr-only">items in cart, view bag</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+</div>
+
+ <div class=" mt-10  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex shadow-md my-10">
+      <div class="w-3/4 bg-white px-10 py-10">
+        <div class="flex justify-between border-b pb-8">
+          <h1 class="font-semibold text-2xl">Shopping Cart</h1>
+          <h2 class="font-semibold text-2xl">3 Items</h2>
+        </div>
+        <div class="flex mt-10 mb-5">
+          <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
+          <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Quantity</h3>
+          <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
+          <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
+        </div>
+        <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+          <div class="flex w-2/5"> <!-- product -->
+            <div class="w-20">
+              <img class="h-24" src="https://drive.google.com/uc?id=18KkAVkGFvaGNqPy2DIvTqmUH_nk39o3z" alt="">
+            </div>
+            <div class="flex flex-col justify-between ml-4 flex-grow">
+              <span class="font-bold text-sm">Iphone 6S</span>
+              <span class="text-red-500 text-xs">Apple</span>
+              <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
+            </div>
+          </div>
+          <div class="flex justify-center w-1/5">
+            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
+            </svg>
+
+            <input class="mx-2 border text-center w-8" type="text" value="1">
+
+            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
+              <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
+            </svg>
+          </div>
+          <span class="text-center w-1/5 font-semibold text-sm">$400.00</span>
+          <span class="text-center w-1/5 font-semibold text-sm">$400.00</span>
+        </div>
+
+        <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+          <div class="flex w-2/5"> <!-- product -->
+            <div class="w-20">
+              <img class="h-24" src="https://drive.google.com/uc?id=10ht6a9IR3K2i1j0rHofp9-Oubl1Chraw" alt="">
+            </div>
+            <div class="flex flex-col justify-between ml-4 flex-grow">
+              <span class="font-bold text-sm">Xiaomi Mi 20000mAh</span>
+              <span class="text-red-500 text-xs">Xiaomi</span>
+              <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
+            </div>
+          </div>
+          <div class="flex justify-center w-1/5">
+            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
+            </svg>
+
+            <input class="mx-2 border text-center w-8" type="text" value="1">
+
+            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
+              <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
+            </svg>
+          </div>
+          <span class="text-center w-1/5 font-semibold text-sm">$40.00</span>
+          <span class="text-center w-1/5 font-semibold text-sm">$40.00</span>
+        </div>
+
+        <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+          <div class="flex w-2/5"> <!-- product -->
+            <div class="w-20">
+              <img class="h-24" src="https://drive.google.com/uc?id=1vXhvO9HoljNolvAXLwtw_qX3WNZ0m75v" alt="">
+            </div>
+            <div class="flex flex-col justify-between ml-4 flex-grow">
+              <span class="font-bold text-sm">Airpods</span>
+              <span class="text-red-500 text-xs">Apple</span>
+              <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
+            </div>
+          </div>
+          <div class="flex justify-center w-1/5">
+            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
+            </svg>
+            <input class="mx-2 border text-center w-8" type="text" value="1">
+
+            <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
+              <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
+            </svg>
+          </div>
+          <span class="text-center w-1/5 font-semibold text-sm">$150.00</span>
+          <span class="text-center w-1/5 font-semibold text-sm">$150.00</span>
+        </div>
+
+        <a href="#" class="flex font-semibold text-indigo-600 text-sm mt-10">
+      
+          <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"><path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"/></svg>
+          Continue Shopping
+        </a>
+      </div>
+
+      <div id="summary" class="w-1/4 px-8 py-10">
+        <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
+        <div class="flex justify-between mt-10 mb-5">
+          <span class="font-semibold text-sm uppercase">Items 3</span>
+          <span class="font-semibold text-sm">590$</span>
+        </div>
+        <div>
+          <label class="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
+          <select class="block p-2 text-gray-600 w-full text-sm">
+            <option>Standard shipping - $10.00</option>
+          </select>
+        </div>
+        <div class="py-10">
+          <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
+          <input type="text" id="promo" placeholder="Enter your code" class="p-2 text-sm w-full">
+        </div>
+        <button class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">Apply</button>
+        <div class="border-t mt-8">
+          <div class="flex font-semibold justify-between py-6 text-sm uppercase">
+            <span>Total cost</span>
+            <span>$600</span>
+          </div>
+          <button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+<script>
+function clearCart() {
+    localStorage.removeItem("cart");
+    localStorage.removeItem("cartP");
+    $("#carticonqty").attr("style", "display:none;");
+    cartTable.innerHTML = "";
+    return false;
+}
+$("#deliveryType").change(function(){
+    //selection changed
+    if(this.value === "homeaddress"){
+        $("#deliveryCost").text("5.00");
+        cart = JSON.parse(localStorage.getItem("cart"));
+        var count = 0;
+        var cartString = "";
+        var totalAmount = 0;
+        var subTotal = 0;
+        for (var i in cart) {
+            count += cart[i].productQty; 
+            subTotal += (cart[i].productQty * cart[i].productPrice);
+        }
+        totalAmount = subTotal + 5;
+        $("#total").text(totalAmount);
+    }else if(this.value === "storepickup"){
+        $("#deliveryCost").text("0.00");
+        cart = JSON.parse(localStorage.getItem("cart"));
+        var count = 0;
+        var cartString = "";
+        var totalAmount = 0;
+        var subTotal = 0;
+        for (var i in cart) {
+            count += cart[i].productQty; 
+            subTotal += (cart[i].productQty * cart[i].productPrice);
+        }
+        totalAmount = subTotal;
+        $("#total").text(totalAmount);
+    }
+});
+
+function purchaseCart() {
+    localStorage.setItem('paymentType', document.getElementById("paymentType").value);
+    localStorage.setItem('deliveryType', document.getElementById("deliveryType").value);
+    localStorage.setItem('totalAmount', document.getElementById("total").innerText);
+    min = Math.ceil(100000000);
+    max = Math.floor(900000000);
+    var orderId = Math.floor(Math.random() * (max - min)) + min;
+    localStorage.setItem('orderId', orderId);
+    document.location.href = "purchase.html";
+}
+
+  if(digitalData.page.cart === true){
+                    console.log(">>>>> Cart page detected.");
+
+                    if(localStorage.getItem("cart") !== null || localStorage.getItem("cart") !== "undefined"){
+                        $("#purchaseButton").attr("disabled", false);
+                        cart = JSON.parse(localStorage.getItem("cart"));
+                        var count = 0;
+                        var cartString = "";
+                        var totalAmount = 0;
+                        var subTotal = 0;
+                        for (var i in cart) {
+                            count += cart[i].productQty; 
+
+                            str = "<tr>" 
+                            + "<td data-title='Product' class='col_product text-left'>"
+                            + "<div class='image visible-lg'>"
+                            + "<a href='" + cart[i].productUrl + "'>"
+                            + "<img style='max-height:60px;max-width:60px;' src='" + cart[i].productImageUrl + "'>"
+                            + "</a></div><h5><a href='" + cart[i].productUrl + "'>" + cart[i].productName + "</a></h5></td>"
+                            + "<td data-title='Qty' class='col_qty text-right'>"
+                            + "<span class='single-price'>" + cart[i].productQty + "</span>"
+                            + "<td data-title='Single' class='col_single text-right'>"
+                            + "<span class='single-price'>" + cart[i].productPrice + "</span></td>"
+                            + "<td data-title='Total' class='col_total text-right'>"
+                            + "<span class='total-price'>" + (cart[i].productQty * cart[i].productPrice) + "</span></td>";
+
+                            cartString += str;
+
+                            subTotal += (cart[i].productQty * cart[i].productPrice);
+                        }
+                        
+                        totalAmount = (subTotal + 5);
+
+
+                        if(count !== "0"){
+                            $("#purchaseButton").attr("disabled", true);
+                        }
+
+                        console.log("Cart exists - " + count + " items in cart.");
+                        if(count > 0){
+                            $("#cartqty").text(count);
+                            $("#carticonqty").attr("style", "display:block;");
+                            $("#purchaseButton").attr("disabled", false);
+                            cartTable.innerHTML = cartString;
+
+                            var total = totalAmount.toFixed(2);
+                            $("#subTotal").text(subTotal);
+                            $("#total").text(total);
+                        }
+                    }
+                }
+</script>
