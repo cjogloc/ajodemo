@@ -236,7 +236,7 @@
                 <svg class="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
-                <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800" id="carticonqty">0</span>
+                <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800" id="cartqty">0</span>
                 <span class="sr-only">items in cart, view bag</span>
               </a>
             </div>
@@ -289,8 +289,8 @@
         <div>
           <label class="font-medium inline-block mb-3 text-sm uppercase">Delivery Type</label>
           <select class="block p-2 text-gray-600 w-full text-sm" id="deliveryType">
-            <option option="homeaddress">Home Delivery - $5.00</option>
-			<option option="storepickup">Store pickup - $0.00</option>
+            <option value="homeaddress">Home Delivery - $5.00</option>
+			<option value="storepickup">Store pickup - $0.00</option>
           </select>
         </div>
 		
@@ -312,9 +312,9 @@
 		  <div class="mt-5>
           <label class="font-medium inline-block mb-3 text-sm uppercase">Payment Mode</label>
           <select class="block p-2 text-gray-600 w-full text-sm" id="paymentType">
-            <option option="visa">Visa</option>
-			<option option="mastercard">Mastercard</option>
-			<option option="bitcoin">Bitcoin</option>
+            <option value="visa">Visa</option>
+			<option value="mastercard">Mastercard</option>
+			<option value="bitcoin">Bitcoin</option>
           </select>
         </div>
           <button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
