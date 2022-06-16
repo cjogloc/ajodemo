@@ -338,7 +338,8 @@ function clearCart() {
 }
 $("#deliveryType").change(function(){
     //selection changed
-    if(this.value === "homeaddress"){
+	console.log(this.value);
+    if(this.value == "homeaddress"){
         $("#deliveryCost").innerHTML("5.00");
         cart = JSON.parse(localStorage.getItem("cart"));
         var count = 0;
@@ -351,7 +352,7 @@ $("#deliveryType").change(function(){
         }
         totalAmount = subTotal + 5;
         $("#total").text(totalAmount);
-    }else if(this.value === "storepickup"){
+    }else if(this.value == "storepickup"){
         $("#deliveryCost").innerHTML("0.00");
         cart = JSON.parse(localStorage.getItem("cart"));
         var count = 0;
