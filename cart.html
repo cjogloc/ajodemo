@@ -297,7 +297,7 @@
 		 <div class="border-t mt-8">
           <div class="flex font-semibold justify-between py-6 text-sm uppercase">
             <span>Delivery Cost</span>
-            <span>$<span id="deliveryCost">0</span></span>
+            <span>$<span id="deliveryCost">5.00</span></span>
           </div>
          
         </div>
@@ -339,7 +339,7 @@ function clearCart() {
 $("#deliveryType").change(function(){
     //selection changed
     if(this.value === "homeaddress"){
-        $("#deliveryCost").text("5.00");
+        $("#deliveryCost").innerHTML("5.00");
         cart = JSON.parse(localStorage.getItem("cart"));
         var count = 0;
         var cartString = "";
@@ -352,7 +352,7 @@ $("#deliveryType").change(function(){
         totalAmount = subTotal + 5;
         $("#total").text(totalAmount);
     }else if(this.value === "storepickup"){
-        $("#deliveryCost").text("0.00");
+        $("#deliveryCost").innerHTML("0.00");
         cart = JSON.parse(localStorage.getItem("cart"));
         var count = 0;
         var cartString = "";
