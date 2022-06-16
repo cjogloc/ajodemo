@@ -363,7 +363,7 @@ function purchaseCart() {
     document.location.href = "purchase.html";
 }
 
-  if(digitalData.page.isCartPage === true){
+  if(digitalData.page.cart === true){
                     console.log(">>>>> Cart page detected.");
 
                     if(localStorage.getItem("cart") !== null || localStorage.getItem("cart") !== "undefined"){
