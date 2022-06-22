@@ -149,7 +149,7 @@
         </div>
 
         <div class="border-t border-gray-200 py-6 px-4">
-          <a href="#" class="-m-2 p-2 flex items-center">
+          <a href="cart.html" class="-m-2 p-2 flex items-center">
             <img src="https://tailwindui.com/img/flags/flag-australia.svg" alt="" class="w-5 h-auto block flex-shrink-0">
             <span class="ml-3 block text-base font-medium text-gray-900"> AUD </span>
             <span class="sr-only">, change currency</span>
@@ -255,7 +255,7 @@
 
             <!-- Cart -->
             <div class="ml-4 flow-root lg:ml-6">
-              <a href="#" class="group -m-2 p-2 flex items-center">
+              <a href="cart.html" class="group -m-2 p-2 flex items-center">
                 <!-- Heroicon name: outline/shopping-bag -->
                 <svg class="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
@@ -648,6 +648,21 @@ function addToCart() {
    
 }).showToast();
 }
+
+if(localStorage.getItem("cart") !== null){
+        cart = JSON.parse(localStorage.getItem("cart"));
+        var count = 0;
+
+        for (var i in cart) {
+            count += cart[i].productQty; 
+        }
+
+        console.log("Cart exists - " + count + " items in cart.");
+        if(count > 0){
+            $("#carticonqty").text(count);
+            $("#carticonqty").attr("style", "display:block;");
+        }
+    }
 </script>
 
 

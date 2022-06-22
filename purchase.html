@@ -277,5 +277,15 @@ var deliveryType=localStorage.getItem('deliveryType');
 $("#orderId").text(orderId);
 $("#deliveryType").text(deliveryType);
 
+function clearCart() {
+    localStorage.removeItem("cart");
+    localStorage.removeItem("cartP");
+    $("#carticonqty").attr("style", "display:none;");
+    cartTable.innerHTML = "";
+    return false;
+}
+
+clearCart();
+
 </script>
  

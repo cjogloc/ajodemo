@@ -369,6 +369,8 @@ $("#deliveryType").change(function(){
 });
 
 function purchaseCart() {
+
+localStorage.setItem('shippingCharges',document.getElementById("deliveryCost").innerText);
     localStorage.setItem('paymentType', document.getElementById("paymentType").value);
     localStorage.setItem('deliveryType', document.getElementById("deliveryType").value);
     localStorage.setItem('totalAmount', document.getElementById("total").innerText);
