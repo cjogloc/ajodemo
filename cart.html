@@ -369,15 +369,15 @@ $("#deliveryType").change(function(){
 });
 
 function purchaseCart() {
-
-localStorage.setItem('shippingCharges',document.getElementById("deliveryCost").innerText);
-    localStorage.setItem('paymentType', document.getElementById("paymentType").value);
-    localStorage.setItem('deliveryType', document.getElementById("deliveryType").value);
-    localStorage.setItem('totalAmount', document.getElementById("total").innerText);
-    min = Math.ceil(100000000);
+	min = Math.ceil(100000000);
     max = Math.floor(900000000);
     var orderId = Math.floor(Math.random() * (max - min)) + min;
     localStorage.setItem('orderId', orderId);
+    localStorage.setItem('paymentType', document.getElementById("paymentType").value);
+    localStorage.setItem('deliveryType', document.getElementById("deliveryType").value);
+    localStorage.setItem('totalAmount', document.getElementById("total").innerText);
+	localStorage.setItem('shippingCharges',document.getElementById("deliveryCost").innerText);
+   
     document.location.href = "purchase.html";
 }
 
